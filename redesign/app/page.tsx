@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { executiveOrders } from "@/lib/data";
-import { aggregateEO, consensus } from "@/lib/aggregation";
+import { aggregateEO } from "@/lib/aggregation";
 import { DIMENSION_ORDER, EVALUATIVE_LENSES } from "@/lib/constants";
 import type { AggregatedEO } from "@/lib/constants";
-import { scoreColor } from "@/components/ScoreBar";
-import { FloorBadge, type FloorStatus } from "@/components/FloorBadge";
 
 function getAdminStats() {
   const admins = ["Obama", "Trump I", "Biden", "Trump II"] as const;
@@ -35,16 +33,13 @@ function getAdminStats() {
   });
 }
 
-function getHeadlineFindings() {
+function getNotableEvaluations() {
   const aggregated: AggregatedEO[] = executiveOrders.map((eo) => ({
     ...eo,
     ...aggregateEO(eo),
   }));
 
-  // Lowest scoring
-  const lowest = aggregated.reduce((a, b) => (a.cfi < b.cfi ? a : b));
-
-  // Highest disagreement
+  // Broadest consensus: lowest max variance (lenses agree most)
   const withVariance = aggregated.map((eo) => {
     const maxVar = Math.max(
       ...DIMENSION_ORDER.map((d) => {
@@ -62,38 +57,46 @@ function getHeadlineFindings() {
     );
     return { ...eo, maxVar };
   });
+
+  const broadestConsensus = withVariance.reduce((a, b) =>
+    a.maxVar < b.maxVar ? a : b
+  );
+
+  // Most contested: highest max variance
   const mostContested = withVariance.reduce((a, b) =>
     a.maxVar > b.maxVar ? a : b
   );
 
-  // Highest scoring
-  const highest = aggregated.reduce((a, b) => (a.cfi > b.cfi ? a : b));
+  // Largest steelman gap: where the defense diverges most from consensus
+  const largestSteelmanGap = aggregated.reduce((a, b) =>
+    Math.abs(a.steelmanDelta) > Math.abs(b.steelmanDelta) ? a : b
+  );
 
   return [
     {
-      label: "Lowest CFI Score",
-      eo: lowest,
-      stat: `${Math.round(lowest.cfi)}/100`,
-      desc: `${lowest.title} scores lowest across all constitutional dimensions.`,
+      label: "Broadest Consensus",
+      eo: broadestConsensus,
+      stat: broadestConsensus.floor === "CONFLICT" ? "Consensus: Conflict" : broadestConsensus.floor === "TENSION" ? "Consensus: Tension" : "Consensus: Alignment",
+      desc: `Interpretive frameworks most strongly agree on ${broadestConsensus.title}.`,
     },
     {
       label: "Most Contested",
       eo: mostContested,
-      stat: `${mostContested.contestedDims.length} dimensions`,
-      desc: `${mostContested.title} generates the most disagreement across lenses.`,
+      stat: `${mostContested.contestedDims.length} contested dim.`,
+      desc: `${mostContested.title} generates the most disagreement across frameworks.`,
     },
     {
-      label: "Highest CFI Score",
-      eo: highest,
-      stat: `${Math.round(highest.cfi)}/100`,
-      desc: `${highest.title} shows the strongest constitutional alignment.`,
+      label: "Strongest Steelman Gap",
+      eo: largestSteelmanGap,
+      stat: `${largestSteelmanGap.steelmanDelta > 0 ? "+" : ""}${largestSteelmanGap.steelmanDelta.toFixed(0)} delta`,
+      desc: `${largestSteelmanGap.title} has the largest gap between strongest defense and consensus.`,
     },
   ];
 }
 
 export default function HomePage() {
   const adminStats = getAdminStats();
-  const headlines = getHeadlineFindings();
+  const notables = getNotableEvaluations();
 
   return (
     <div>
@@ -106,6 +109,10 @@ export default function HomePage() {
           <p className="mt-4 text-lg text-slate-300 max-w-xl leading-relaxed">
             A multi-lens framework for evaluating executive power against
             constitutional principles. Non-partisan. Transparent. Auditable.
+          </p>
+          <p className="mt-3 text-sm text-slate-400 max-w-xl">
+            An analytical framework, not a legal determination. Scores reflect
+            structured AI analysis across six interpretive frameworks.
           </p>
           <div className="mt-8 flex gap-3">
             <Link
@@ -171,14 +178,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Headline Findings */}
+      {/* Notable Evaluations */}
       <section className="bg-stone-50">
         <div className="mx-auto max-w-6xl px-6 py-12">
           <h2 className="font-serif text-xl font-semibold text-slate-900 mb-6">
-            Key Findings
+            Notable Evaluations
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {headlines.map((h) => (
+            {notables.map((h) => (
               <Link
                 key={h.label}
                 href={`/evaluation/${h.eo.id}`}
@@ -187,10 +194,7 @@ export default function HomePage() {
                 <p className="text-xs font-medium text-slate-400 uppercase tracking-wider">
                   {h.label}
                 </p>
-                <p
-                  className="mt-2 text-2xl font-bold font-serif"
-                  style={{ color: scoreColor(h.eo.cfi) }}
-                >
+                <p className="mt-2 text-lg font-semibold font-serif text-slate-700">
                   {h.stat}
                 </p>
                 <p className="mt-2 text-sm text-slate-600 leading-relaxed">
