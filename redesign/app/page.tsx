@@ -3,7 +3,7 @@ import { executiveOrders } from "@/lib/data";
 import { aggregateEO, consensus } from "@/lib/aggregation";
 import { DIMENSION_ORDER, EVALUATIVE_LENSES } from "@/lib/constants";
 import type { AggregatedEO } from "@/lib/constants";
-import { ScoreDisplay, ScoreBar, scoreColor } from "@/components/ScoreBar";
+import { scoreColor } from "@/components/ScoreBar";
 import { FloorBadge, type FloorStatus } from "@/components/FloorBadge";
 
 function getAdminStats() {
@@ -20,17 +20,17 @@ function getAdminStats() {
       .filter((eo) => eo.admin === admin)
       .map((eo) => ({ ...eo, ...aggregateEO(eo) }));
 
-    const avgCfi = eos.reduce((sum, eo) => sum + eo.cfi, 0) / eos.length;
     const conflicts = eos.filter((eo) => eo.floor === "CONFLICT").length;
     const tensions = eos.filter((eo) => eo.floor === "TENSION").length;
+    const alignments = eos.filter((eo) => eo.floor === "ALIGNMENT").length;
 
     return {
       admin,
       dateRange: dateRanges[admin],
       count: eos.length,
-      avgCfi,
       conflicts,
       tensions,
+      alignments,
     };
   });
 }
@@ -137,30 +137,31 @@ export default function HomePage() {
                 href={`/scorecard?admin=${encodeURIComponent(stat.admin)}`}
                 className="group block p-5 rounded-lg border border-slate-200 bg-stone-50/50 hover:shadow-md hover:border-slate-300 transition-all"
               >
-                <div className="flex items-baseline justify-between">
-                  <div>
-                    <p className="text-sm font-semibold text-slate-800 group-hover:text-indigo-700 transition-colors">
-                      {stat.admin}
-                    </p>
-                    <p className="text-xs text-slate-400 mt-0.5">
-                      {stat.dateRange}
-                    </p>
-                  </div>
-                  <ScoreDisplay score={stat.avgCfi} size="sm" />
+                <div>
+                  <p className="text-sm font-semibold text-slate-800 group-hover:text-indigo-700 transition-colors">
+                    {stat.admin}
+                  </p>
+                  <p className="text-xs text-slate-400 mt-0.5">
+                    {stat.dateRange}
+                  </p>
                 </div>
-                <div className="mt-3">
-                  <ScoreBar score={stat.avgCfi} size="lg" />
-                </div>
-                <div className="mt-3 flex items-center gap-3 text-xs text-slate-500">
-                  <span>{stat.count} evaluated</span>
+                <p className="mt-3 text-xs text-slate-500">
+                  {stat.count} actions evaluated
+                </p>
+                <div className="mt-2 flex items-center gap-3 text-xs">
                   {stat.conflicts > 0 && (
-                    <span className="text-red-700">
+                    <span className="text-red-700 font-medium">
                       {stat.conflicts} conflict{stat.conflicts > 1 ? "s" : ""}
                     </span>
                   )}
                   {stat.tensions > 0 && (
-                    <span className="text-amber-700">
+                    <span className="text-amber-700 font-medium">
                       {stat.tensions} tension{stat.tensions > 1 ? "s" : ""}
+                    </span>
+                  )}
+                  {stat.alignments > 0 && (
+                    <span className="text-emerald-700 font-medium">
+                      {stat.alignments} alignment{stat.alignments > 1 ? "s" : ""}
                     </span>
                   )}
                 </div>
