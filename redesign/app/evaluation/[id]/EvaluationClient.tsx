@@ -2,13 +2,14 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import { aggregateEO } from "@/lib/aggregation";
+import { aggregateEOFull } from "@/lib/aggregation";
 import {
   DIMENSIONS,
   DIMENSION_ORDER,
   EVALUATIVE_LENSES,
 } from "@/lib/constants";
 import type { ExecutiveOrder } from "@/lib/constants";
+import { getCitedCases } from "@/lib/caselaw";
 import { ScoreDisplay, scoreColor, scoreLabel } from "@/components/ScoreBar";
 import { FloorBadge, type FloorStatus } from "@/components/FloorBadge";
 import { AdminTag } from "@/components/AdminTag";
@@ -16,6 +17,7 @@ import { RadarChart } from "@/components/RadarChart";
 import { DimensionalHeatmap } from "@/components/DimensionalHeatmap";
 import { LensAccordion } from "@/components/LensAccordion";
 import { Tooltip, HELP } from "@/components/Tooltip";
+import { PrecedentSection } from "@/components/PrecedentSection";
 
 function formatDate(dateStr: string): string {
   const d = new Date(dateStr + "T00:00:00");
@@ -29,7 +31,9 @@ function formatDate(dateStr: string): string {
 export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
   const [showJson, setShowJson] = useState(false);
 
-  const agg = useMemo(() => aggregateEO(eo), [eo]);
+  const agg = useMemo(() => aggregateEOFull(eo), [eo]);
+
+  const caseCitations = useMemo(() => getCitedCases(eo.narratives), [eo]);
 
   const steelmanByDim = DIMENSION_ORDER.filter((d) =>
     agg.relevantDims.has(d)
@@ -161,10 +165,10 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
                 </p>
                 <FloorBadge status={agg.floor as FloorStatus} size="md" />
                 <p className="mt-0.5 text-[11px] text-slate-400">
-                  {agg.floor === "VIOLATION"
-                    ? "3+ lenses found severe tension"
-                    : agg.floor === "CAUTION"
-                    ? "3+ lenses found moderate tension"
+                  {agg.floor === "CONFLICT"
+                    ? "3+ frameworks identified severe tension"
+                    : agg.floor === "TENSION"
+                    ? "3+ frameworks identified moderate tension"
                     : "No broad agreement on tension"}
                 </p>
               </div>
@@ -223,13 +227,13 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
           {floorTriggers.length > 0 && (
             <div className="rounded-md border border-red-200 bg-red-50/50 p-4">
               <p className="text-xs font-semibold text-red-700 uppercase tracking-wider mb-2">
-                Floor Violations
+                Floor Conflicts
               </p>
               {floorTriggers.map((d) => (
                 <div key={d.dim} className="mb-2 last:mb-0">
                   <p className="text-sm font-medium text-red-900">{d.label}</p>
                   <p className="text-xs text-red-700/80">
-                    {d.negTwoCount} of 5 lenses scored &minus;2 (strong tension)
+                    {d.negTwoCount} of 5 frameworks scored &minus;2 (severe tension)
                   </p>
                 </div>
               ))}
@@ -240,7 +244,7 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
           {cautionTriggers.length > 0 && (
             <div className="rounded-md border border-amber-200 bg-amber-50/50 p-4">
               <p className="text-xs font-semibold text-amber-700 uppercase tracking-wider mb-2">
-                Caution Areas
+                Tension Areas
               </p>
               {cautionTriggers.map((d) => (
                 <div key={d.dim} className="mb-2 last:mb-0">
@@ -248,7 +252,7 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
                     {d.label}
                   </p>
                   <p className="text-xs text-amber-700/80">
-                    {d.negOneCount} of 5 lenses found moderate tension
+                    {d.negOneCount} of 5 frameworks identified moderate tension
                   </p>
                 </div>
               ))}
@@ -412,8 +416,14 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
         </h2>
         <p className="text-xs text-slate-400 mb-4">
           Click to expand each constitutional lens&apos;s reasoning.
+          {caseCitations.length > 0 && (
+            <>
+              {" "}Case citations are tagged for fidelity.{" "}
+              <Tooltip content={HELP.fidelityTags} />
+            </>
+          )}
         </p>
-        <LensAccordion narratives={eo.narratives} />
+        <LensAccordion narratives={eo.narratives} caseCitations={caseCitations} />
       </section>
 
       {/* Steelman */}
@@ -471,6 +481,17 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
           </div>
         </div>
       </section>
+
+      {/* Precedent Anchoring */}
+      {agg.precedentAnchoring && (
+        <section className="bg-white rounded-lg border border-slate-200 p-6 mb-6">
+          <h2 className="font-serif text-lg font-semibold text-slate-900 mb-4 flex items-center gap-1.5">
+            Precedent Anchoring
+            <Tooltip content={HELP.precedentAnchoring} />
+          </h2>
+          <PrecedentSection anchoring={agg.precedentAnchoring} />
+        </section>
+      )}
 
       {/* Raw JSON */}
       <section className="bg-white rounded-lg border border-slate-200 p-6 mb-12">
