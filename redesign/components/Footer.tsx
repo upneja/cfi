@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-white">
@@ -14,6 +16,7 @@ export function Footer() {
           </div>
           <div className="flex gap-8 text-sm text-slate-500">
             <div className="flex flex-col gap-2">
+              <a href="/about" className="hover:text-slate-900 transition-colors">About</a>
               <a href="/methodology" className="hover:text-slate-900 transition-colors">Methodology</a>
               <a href="/scholars" className="hover:text-slate-900 transition-colors">For Scholars</a>
             </div>
@@ -24,8 +27,15 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-slate-100 text-xs text-slate-400">
-          Constitutional Fidelity Index. All evaluations are AI-generated using
-          transparent, auditable prompts.
+          All evaluations are AI-generated constitutional analysis, not legal
+          determinations. Prompts, schemas, and integrity tests are published for
+          independent verification.{" "}
+          <Link
+            href="/about"
+            className="text-slate-500 hover:text-slate-700 underline transition-colors"
+          >
+            About CFI
+          </Link>
         </div>
       </div>
     </footer>
