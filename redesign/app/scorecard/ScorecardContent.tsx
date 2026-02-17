@@ -105,6 +105,12 @@ export function ScorecardContent() {
           All evaluated executive actions with constitutional fidelity scores,
           floor assessments, and lens consensus levels.
         </p>
+        <p className="mt-1 text-xs text-slate-400">
+          Scores reflect structured AI analysis across six constitutional interpretive frameworks.{" "}
+          <Link href="/about" className="text-indigo-500 hover:text-indigo-400 transition-colors">
+            About CFI &rarr;
+          </Link>
+        </p>
       </div>
 
       {/* Filters */}
@@ -163,6 +169,12 @@ export function ScorecardContent() {
                 <th className="text-left py-3 px-3 text-xs font-medium text-slate-500 uppercase tracking-wider hidden md:table-cell">
                   Date
                 </th>
+                <th className="text-left py-3 px-3 text-xs font-medium text-slate-500 uppercase tracking-wider hidden sm:table-cell">
+                  <span className="inline-flex items-center gap-1">
+                    Consensus
+                    <Tooltip content={HELP.consensus} />
+                  </span>
+                </th>
                 <th className="text-left py-3 px-3 text-xs font-medium text-slate-500 uppercase tracking-wider">
                   <span className="inline-flex items-center gap-1">
                     CFI
@@ -173,12 +185,6 @@ export function ScorecardContent() {
                   <span className="inline-flex items-center gap-1">
                     Floor
                     <Tooltip content={HELP.floorStatus} />
-                  </span>
-                </th>
-                <th className="text-left py-3 px-3 text-xs font-medium text-slate-500 uppercase tracking-wider hidden lg:table-cell">
-                  <span className="inline-flex items-center gap-1">
-                    Consensus
-                    <Tooltip content={HELP.consensus} />
                   </span>
                 </th>
               </tr>
@@ -205,6 +211,13 @@ export function ScorecardContent() {
                   <td className="py-3 px-3 text-xs text-slate-500 hidden md:table-cell whitespace-nowrap">
                     {formatDate(eo.date)}
                   </td>
+                  <td className="py-3 px-3 hidden sm:table-cell">
+                    <span
+                      className={`text-xs font-medium ${eo.consensusColor}`}
+                    >
+                      {eo.consensusLabel}
+                    </span>
+                  </td>
                   <td className="py-3 px-3">
                     <div className="flex items-center gap-2">
                       <span
@@ -218,13 +231,6 @@ export function ScorecardContent() {
                   </td>
                   <td className="py-3 px-3 hidden sm:table-cell">
                     <FloorBadge status={eo.floor as FloorStatus} />
-                  </td>
-                  <td className="py-3 px-3 hidden lg:table-cell">
-                    <span
-                      className={`text-xs font-medium ${eo.consensusColor}`}
-                    >
-                      {eo.consensusLabel}
-                    </span>
                   </td>
                 </tr>
               ))}
