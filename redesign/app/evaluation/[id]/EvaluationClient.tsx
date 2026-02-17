@@ -129,6 +129,13 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
         </Link>
       </nav>
 
+      <p className="text-xs text-slate-400 mb-4">
+        AI-generated constitutional analysis. Not a legal determination.{" "}
+        <Link href="/methodology" className="text-indigo-500 hover:text-indigo-400 transition-colors">
+          Methodology &rarr;
+        </Link>
+      </p>
+
       {/* Verdict */}
       <section className="bg-white rounded-lg border border-slate-200 p-6 md:p-8 mb-6">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -147,14 +154,22 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
           </div>
           <div className="flex-shrink-0 md:ml-8">
             <div className="grid grid-cols-2 md:grid-cols-1 gap-4 md:gap-3">
-              {/* CFI Score */}
-              <div className="text-center md:text-right">
+              {/* Lens Agreement — PRIMARY */}
+              <div className="text-center md:text-right col-span-2 md:col-span-1">
                 <p className="text-[10px] font-medium text-slate-400 uppercase tracking-widest mb-1">
-                  CFI Score
+                  Lens Agreement
                 </p>
-                <ScoreDisplay score={agg.cfi} size="lg" />
+                <p className={`text-lg md:text-xl font-bold ${consensusColor}`}>
+                  {consensusLabel}
+                </p>
                 <p className="mt-0.5 text-[11px] text-slate-400">
-                  {scoreLabel(agg.cfi)}
+                  {agg.floor === "CONFLICT"
+                    ? `Constitutional floor conflict across ${floorTriggers.length} dimension${floorTriggers.length > 1 ? "s" : ""}`
+                    : agg.floor === "TENSION"
+                    ? `Constitutional tension across ${cautionTriggers.length} dimension${cautionTriggers.length > 1 ? "s" : ""}`
+                    : maxVar < 0.5
+                    ? "Frameworks largely agree on alignment"
+                    : "Frameworks diverge on assessment"}
                 </p>
               </div>
 
@@ -164,29 +179,16 @@ export function EvaluationClient({ eo }: { eo: ExecutiveOrder }) {
                   Constitutional Floor
                 </p>
                 <FloorBadge status={agg.floor as FloorStatus} size="md" />
-                <p className="mt-0.5 text-[11px] text-slate-400">
-                  {agg.floor === "CONFLICT"
-                    ? "3+ frameworks identified severe tension"
-                    : agg.floor === "TENSION"
-                    ? "3+ frameworks identified moderate tension"
-                    : "No broad agreement on tension"}
-                </p>
               </div>
 
-              {/* Consensus */}
+              {/* CFI Score — SECONDARY */}
               <div className="text-center md:text-right">
                 <p className="text-[10px] font-medium text-slate-400 uppercase tracking-widest mb-1">
-                  Lens Agreement
+                  CFI Score
                 </p>
-                <span className={`text-sm font-semibold ${consensusColor}`}>
-                  {consensusLabel}
-                </span>
+                <ScoreDisplay score={agg.cfi} size="sm" />
                 <p className="mt-0.5 text-[11px] text-slate-400">
-                  {maxVar < 0.5
-                    ? "Lenses largely agree"
-                    : maxVar <= 1.0
-                    ? "Some disagreement across lenses"
-                    : "Lenses strongly diverge"}
+                  {scoreLabel(agg.cfi)}
                 </p>
               </div>
 
