@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-serif: var(--font-source-serif);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Score colors */
+  --color-score-high: #047857;
+  --color-score-mid-high: #059669;
+  --color-score-mid: #a16207;
+  --color-score-mid-low: #dc2626;
+  --color-score-low: #991b1b;
+
+  /* Floor status */
+  --color-floor-violation-bg: #fef2f2;
+  --color-floor-violation-text: #991b1b;
+  --color-floor-violation-border: #fecaca;
+  --color-floor-caution-bg: #fffbeb;
+  --color-floor-caution-text: #92400e;
+  --color-floor-caution-border: #fde68a;
+  --color-floor-clear-bg: #ecfdf5;
+  --color-floor-clear-text: #065f46;
+  --color-floor-clear-border: #a7f3d0;
+
+  /* Administration */
+  --color-admin-dem-bg: #eff6ff;
+  --color-admin-dem-text: #1e40af;
+  --color-admin-dem-border: #bfdbfe;
+  --color-admin-rep-bg: #fef2f2;
+  --color-admin-rep-text: #991b1b;
+  --color-admin-rep-border: #fecaca;
+}
+
+:root {
+  --background: #fafaf9;
+  --foreground: #0f172a;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background-color: #c7d2fe;
+  color: #1e1b4b;
+}
