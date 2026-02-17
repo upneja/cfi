@@ -1,0 +1,134 @@
+{
+  "description": "Framing Invariance Test Suite for the Constitutional Fidelity Index",
+  "version": "1.0",
+  "methodology": "Each government action is presented in three distinct framings: favorable (emphasizing benefits/intentions), unfavorable (emphasizing risks/criticisms), and neutral (factual description). The CFI's core constitutional scores should not vary significantly across framings. Score variation exceeding the threshold indicates the index is sensitive to framing rather than substantive constitutional analysis, revealing bias vectors. A robust constitutional assessment should yield consistent dimension scores regardless of rhetorical framing.",
+  "threshold": 0.5,
+  "tests": [
+    {
+      "id": 1,
+      "action": "DACA (Deferred Action for Childhood Arrivals)",
+      "administration": "Obama, 2012",
+      "favorable": "Humanitarian protection program shielding 800,000 young Americans who were brought to this country as children through no fault of their own, allowing them to work, study, and contribute to their communities while the immigration system is reformed.",
+      "unfavorable": "Unilateral executive amnesty that bypassed Congress and the democratic process, granting quasi-legal status to nearly a million illegal immigrants in defiance of federal law, incentivizing future illegal immigration and undermining the rule of law.",
+      "neutral": "Executive memorandum directing DHS to exercise prosecutorial discretion by deferring deportation proceedings for certain undocumented immigrants who arrived in the US before age 16, have continuous residence, and no serious criminal convictions."
+    },
+    {
+      "id": 2,
+      "action": "Student Loan Forgiveness Program",
+      "administration": "Biden, 2022",
+      "favorable": "Historic relief for 43 million Americans burdened by student debt, restoring their ability to save for homes, start businesses, and participate fully in the economy, while directing attention to education affordability in future generations.",
+      "unfavorable": "Wasteful transfer of $340 billion in taxpayer money to college-educated borrowers who borrowed money knowing repayment obligations, circumventing Congress through executive fiat and creating moral hazard for future borrowers.",
+      "neutral": "Executive order directing the Department of Education to cancel up to $20,000 in federal student loan debt for individual borrowers meeting income thresholds, based on authority under the HEROES Act of 2003."
+    },
+    {
+      "id": 3,
+      "action": "COVID-19 Emergency Powers and Appropriations",
+      "administration": "Trump/Biden, 2020-2021",
+      "favorable": "Swift emergency response that mobilized resources during an unprecedented public health crisis, directing federal funding to testing, vaccines, and economic relief that saved lives and prevented economic collapse.",
+      "unfavorable": "Unconstitutional expansion of executive power that bypassed Congressional appropriations authority, using vague emergency statutes to spend hundreds of billions without legislative oversight or accountability.",
+      "neutral": "Invocation of the National Emergencies Act, STAFFORD Act, Defense Production Act, and other statutory authorities to reprogram existing appropriations and direct federal agencies to respond to the pandemic."
+    },
+    {
+      "id": 4,
+      "action": "Border Wall Emergency Declaration",
+      "administration": "Trump, 2019",
+      "favorable": "National security measure to secure the southern border against illegal immigration and drug trafficking, protecting American communities by constructing barriers in strategic locations.",
+      "unfavorable": "Fraudulent emergency declaration that contradicted the President's own statements about a non-emergency, misappropriating military construction funds Congress allocated for bases and facilities, establishing a dangerous precedent for unilateral executive spending.",
+      "neutral": "Invocation of the National Emergencies Act to declare a national emergency at the southern border and reprogram approximately $3.6 billion in military construction funds to border barrier construction."
+    },
+    {
+      "id": 5,
+      "action": "Clean Power Plan Regulations",
+      "administration": "Obama EPA, 2015",
+      "favorable": "Transformative environmental regulations addressing the existential threat of climate change by setting emissions standards that incentivize transition to clean energy and protect future generations from climate catastrophe.",
+      "unfavorable": "Regulatory overreach where an unelected agency radically redefined Clean Air Act authority without Congressional authorization, effectively writing major new energy policy that cost jobs and increased electricity rates on American families.",
+      "neutral": "EPA regulations under the Clean Air Act establishing CO2 emissions standards for power plants, treating CO2 as an air pollutant and establishing state-by-state reduction targets through a flexible market-based approach."
+    },
+    {
+      "id": 6,
+      "action": "Revocation of Clean Power Plan",
+      "administration": "Trump EPA, 2017-2020",
+      "favorable": "Rational deregulation that restored the legitimate limits of EPA authority, protecting American energy independence and economic competitiveness while returning regulatory decisions to individual states.",
+      "unfavorable": "Rollback of vital climate protections driven by fossil fuel interests, abandoning America's climate leadership and returning to outdated coal-dependent energy policy that fails to address existential environmental threats.",
+      "neutral": "EPA revocation of the 2015 Clean Power Plan and replacement with the Affordable Clean Energy rule, which establishes emissions guidelines allowing states greater flexibility in how to achieve compliance."
+    },
+    {
+      "id": 7,
+      "action": "Travel Ban on Muslim-Majority Countries",
+      "administration": "Trump, 2017",
+      "favorable": "National security measure restricting travel from countries with inadequate vetting procedures, terrorism threats, or no cooperation with US security protocols, protecting Americans from potential terrorist attacks.",
+      "unfavorable": "Unconstitutional Muslim ban targeting individuals based on religion, betraying American values of religious liberty and equal protection while harming millions of innocent people and damaging international relationships.",
+      "neutral": "Executive order restricting travel from Iran, Libya, North Korea, Somalia, Syria, Yemen, and later Venezuela and Nigeria, based on determinations that these nations lack adequate information sharing and security protocols."
+    },
+    {
+      "id": 8,
+      "action": "COVID-19 Vaccine Mandates",
+      "administration": "Biden, 2021",
+      "favorable": "Public health emergency response mandating life-saving vaccines or testing for workers and healthcare personnel, preventing deaths and hospitalizations while keeping businesses and schools safe and functional.",
+      "unfavorable": "Government overreach violating bodily autonomy and medical freedom rights, coercing millions of Americans to choose between their careers and experimental vaccines, discriminating against those with natural immunity or religious objections.",
+      "neutral": "OSHA emergency temporary standard requiring employers with 100+ employees to implement vaccination or testing protocols, with exceptions for medical or religious reasons and natural immunity documentation."
+    },
+    {
+      "id": 9,
+      "action": "NSA Bulk Metadata Surveillance Program",
+      "administration": "Continued under Obama, 2009-2013",
+      "favorable": "Effective counterterrorism tool that collects metadata allowing rapid identification of terrorist networks and prevention of attacks, operating under Congressional oversight through the FISA court system.",
+      "unfavorable": "Massive unconstitutional surveillance of Americans' communications and movements, violating Fourth Amendment protections without individualized warrants, creating a surveillance state that Edward Snowden and courts have since ruled illegal.",
+      "neutral": "NSA bulk collection of phone call metadata and internet communications under Section 215 of the PATRIOT Act and Executive Order 12333, retained and analyzed for counterterrorism purposes."
+    },
+    {
+      "id": 10,
+      "action": "Obama Administration Mass Commutations",
+      "administration": "Obama, 2016-2017",
+      "favorable": "Compassionate criminal justice reform granting mercy to 1,715 federal prisoners serving disproportionate sentences for nonviolent drug offenses, recognizing systemic racial disparities in sentencing and reducing prison overpopulation.",
+      "unfavorable": "Reckless abuse of presidential clemency power releasing hundreds of felons convicted of serious crimes back onto the streets, flouting the rule of law and disrespecting victims and law enforcement.",
+      "neutral": "Grant of commutations to 1,715 federal prisoners, primarily serving drug offenses, by whom the President determined sentences to be significantly longer than current sentencing guidelines would impose."
+    },
+    {
+      "id": 11,
+      "action": "January 6 Capitol Riot Pardons and Commutations",
+      "administration": "Trump, 2025",
+      "favorable": "Restoration of justice for political prisoners and supporters who participated in lawful political protest, correcting an unprecedented weaponization of the justice system against political opponents.",
+      "unfavorable": "Presidential pardon for violent insurrectionists who assaulted police, breached the Capitol to disrupt Constitutional proceedings, and threatened democracy itself, showing contempt for law and order.",
+      "neutral": "Full pardons and sentence commutations for individuals convicted in connection with January 6, 2021 Capitol building breach, including both individuals who pleaded guilty to misdemeanors and those convicted of violent felonies."
+    },
+    {
+      "id": 12,
+      "action": "Paris Climate Agreement Entry and Withdrawal",
+      "administration": "Obama entry 2016, Trump withdrawal 2017",
+      "favorable_entry": "Responsible global leadership recognizing climate change as a threat to American prosperity, joining nearly all nations in binding commitment to emissions reduction and clean energy transition.",
+      "unfavorable_entry": "Unilateral commitment to reduce American competitiveness without Senate ratification, imposing climate restrictions that will cost American jobs while China and India continue unchecked emissions.",
+      "favorable_withdrawal": "Reversal of a failed agreement that imposed disproportionate burdens on American workers while allowing other nations to continue high emissions, prioritizing American energy independence and economic growth.",
+      "unfavorable_withdrawal": "Irresponsible abandonment of global climate leadership, withdrawing from the only binding framework addressing existential climate threats and signaling American abdication of environmental responsibility.",
+      "neutral": "Obama executive entry into the Paris Climate Agreement in 2016 based on authority under the UN Framework Convention; Trump executive withdrawal in 2017 invoking authority under Article 28 of the Agreement."
+    },
+    {
+      "id": 13,
+      "action": "Transgender Military Service Policies",
+      "administration": "Obama 2016, Trump 2017-2020, Biden 2021",
+      "favorable_inclusive": "Historic protection of transgender Americans' right to serve their country and receive medical care, ending discrimination against qualified military personnel based on gender identity.",
+      "unfavorable_inclusive": "Disruptive policy forcing expensive gender transition procedures on taxpayers and undermining military readiness by introducing complex new accommodations.",
+      "favorable_restrictive": "Rational military policy prioritizing unit cohesion and medical readiness by limiting service to those without complex ongoing medical requirements.",
+      "unfavorable_restrictive": "Unjust discrimination excluding qualified Americans from serving their country based solely on gender identity, denying their constitutional equal protection rights.",
+      "neutral": "Policy decisions affecting eligibility for military service and medical care coverage based on gender identity and transition status, varying by administration."
+    },
+    {
+      "id": 14,
+      "action": "Title IX Sexual Orientation and Gender Identity Guidance",
+      "administration": "Biden guidance 2021, Trump rollback 2017",
+      "favorable_expansion": "Crucial civil rights protections ensuring LGBTQ students can learn and participate safely in schools, prohibiting discrimination that devastates vulnerable youth.",
+      "unfavorable_expansion": "Reckless expansion of Title IX beyond its text to redefine sexual discrimination, imposing controversial gender ideology in schools without Congressional authorization.",
+      "favorable_rollback": "Restoring the original meaning of sex discrimination in Title IX and preventing regulatory overreach that contradicts Congressional intent.",
+      "unfavorable_rollback": "Removal of civil rights protections for vulnerable LGBTQ students, abandoning federal commitment to educational equality and enabling harassment.",
+      "neutral": "Biden administration guidance interpreting Title IX sex discrimination provisions to apply to sexual orientation and gender identity discrimination; Trump administration withdrawal and narrower interpretation."
+    },
+    {
+      "id": 15,
+      "action": "ICE Immigration Enforcement Operations",
+      "administration": "Trump, 2017-2020",
+      "favorable": "Enforcement of federal immigration law and removal of criminals and security threats, restoring the rule of law after years of non-enforcement and protecting American communities.",
+      "unfavorable": "Militarized immigration enforcement with raids separating families, deporting people with long-term legal residence and community ties, and using fear and intimidation against immigrant communities.",
+      "neutral": "Increased Immigration and Customs Enforcement (ICE) operations including workplace raids and detention, targeting both individuals with criminal convictions and undocumented immigrants without criminal records."
+    }
+  ]
+}

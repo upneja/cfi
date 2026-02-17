@@ -1,0 +1,299 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Constitutional Fidelity Index - Complete Evaluation Output Schema",
+  "description": "Schema for the complete evaluation output of a single government action, including classifier input, per-lens evaluations, and aggregated results",
+  "type": "object",
+  "required": ["metadata", "classifierOutput", "lensOutputs", "aggregatedOutput"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Metadata about the evaluation",
+      "required": ["actionId", "actionTitle", "evaluationTimestamp", "modelVersion"],
+      "properties": {
+        "actionId": {
+          "type": "string",
+          "description": "Unique identifier for the government action being evaluated"
+        },
+        "actionTitle": {
+          "type": "string",
+          "description": "Human-readable title of the action"
+        },
+        "actionDescription": {
+          "type": "string",
+          "description": "Detailed description of the government action"
+        },
+        "evaluationTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp of when the evaluation was performed"
+        },
+        "modelVersion": {
+          "type": "string",
+          "description": "Version of the CFI model used"
+        },
+        "evaluationContext": {
+          "type": "object",
+          "description": "Optional context about the evaluation",
+          "properties": {
+            "jurisdiction": { "type": "string" },
+            "actionType": { "type": "string" },
+            "relatedActions": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "classifierOutput": {
+      "type": "object",
+      "description": "Output from the initial classifier that identifies relevant constitutional dimensions",
+      "required": ["actionSummary", "relevantDimensions", "confidenceScore"],
+      "properties": {
+        "actionSummary": {
+          "type": "string",
+          "description": "Classifier's summary of the action"
+        },
+        "relevantDimensions": {
+          "type": "array",
+          "description": "List of dimensions identified as relevant by the classifier",
+          "items": {
+            "type": "object",
+            "required": ["dimensionCode", "dimensionName", "relevanceScore"],
+            "properties": {
+              "dimensionCode": {
+                "type": "string",
+                "description": "Code identifying the constitutional dimension"
+              },
+              "dimensionName": {
+                "type": "string",
+                "description": "Human-readable name of the dimension"
+              },
+              "relevanceScore": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Initial relevance score assigned by classifier"
+              }
+            }
+          }
+        },
+        "confidenceScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Overall confidence of the classifier in its assessment"
+        }
+      }
+    },
+    "lensOutputs": {
+      "type": "array",
+      "description": "Array of outputs from the 6 lens agents",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "required": ["lensId", "lensName", "dimensionEvaluations", "narrative"],
+        "properties": {
+          "lensId": {
+            "type": "integer",
+            "enum": [1, 2, 3, 4, 5, 6],
+            "description": "Identifier for the lens: 1=Textualist, 2=Originalist, 3=Doctrinalist, 4=Living Constitutionalist, 5=Pragmatist, 6=Steelman Advocate"
+          },
+          "lensName": {
+            "type": "string",
+            "enum": ["Textualist", "Originalist", "Doctrinalist", "Living Constitutionalist", "Pragmatist", "Steelman Advocate"],
+            "description": "Name of the constitutional interpretation lens"
+          },
+          "dimensionEvaluations": {
+            "type": "array",
+            "description": "Evaluation of each dimension through this lens",
+            "items": {
+              "type": "object",
+              "required": ["dimensionCode", "dimensionName", "score", "relevance", "confidence", "citation", "justification", "counterargument"],
+              "properties": {
+                "dimensionCode": {
+                  "type": "string",
+                  "description": "Code identifying the constitutional dimension"
+                },
+                "dimensionName": {
+                  "type": "string",
+                  "description": "Human-readable name of the dimension"
+                },
+                "score": {
+                  "type": "integer",
+                  "enum": [-2, -1, 0, 1, 2],
+                  "description": "Alignment score: -2=Clear violation, -1=Likely violation, 0=Neutral, 1=Likely aligned, 2=Clear alignment"
+                },
+                "relevance": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1,
+                  "description": "Relevance of this dimension to the action (0=not relevant, 1=highly relevant)"
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": ["High", "Medium", "Low"],
+                  "description": "Confidence level in this evaluation"
+                },
+                "citation": {
+                  "type": "object",
+                  "required": ["text", "tier"],
+                  "description": "Constitutional source supporting this evaluation",
+                  "properties": {
+                    "text": {
+                      "type": "string",
+                      "description": "The constitutional text or principle cited"
+                    },
+                    "tier": {
+                      "type": "string",
+                      "enum": ["1", "2", "3A", "3B", "4"],
+                      "description": "Authority tier: 1=Ratified Constitutional Law, 2=Founding Interpretive Context, 3A=Constitutional Legislation, 3B=Judicial Precedent (Descriptive, Tagged), 4=Comparative Democratic Evidence"
+                    }
+                  }
+                },
+                "justification": {
+                  "type": "string",
+                  "description": "2-3 sentence explanation of the score (why this action aligns or violates this dimension)"
+                },
+                "counterargument": {
+                  "type": "string",
+                  "description": "The strongest argument against this score from an alternative constitutional perspective"
+                }
+              }
+            }
+          },
+          "narrative": {
+            "type": "string",
+            "description": "Comprehensive 1-2 paragraph analysis of the action from this lens's perspective, synthesizing across all relevant dimensions"
+          }
+        }
+      }
+    },
+    "aggregatedOutput": {
+      "type": "object",
+      "description": "Final aggregated results from the 6-step aggregation procedure",
+      "required": ["floor", "floorDetails", "alignmentScore", "dimensionScores", "steelmanDelta", "brief"],
+      "properties": {
+        "floor": {
+          "type": "string",
+          "enum": ["VIOLATION", "CAUTION", "CLEAR"],
+          "description": "Constitutional floor assessment: VIOLATION (≥3 lenses score -2 on any dimension), CAUTION (≥3 lenses score -1 on any dimension), CLEAR (otherwise)"
+        },
+        "floorDetails": {
+          "type": "array",
+          "description": "Details on dimensions that triggered VIOLATION or CAUTION",
+          "items": {
+            "type": "object",
+            "required": ["dimension", "severity", "count"],
+            "properties": {
+              "dimension": {
+                "type": "string",
+                "description": "The dimension code that triggered the floor level"
+              },
+              "severity": {
+                "type": "string",
+                "enum": [-2, -1],
+                "description": "The severity of the violation (-2 for violations, -1 for cautions)"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 3,
+                "description": "Number of lenses that assigned this severity score"
+              }
+            }
+          }
+        },
+        "alignmentScore": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Overall Constitutional Fidelity Index score on 0-100 scale"
+        },
+        "dimensionScores": {
+          "type": "object",
+          "description": "Per-dimension aggregation results",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["meanScore", "meanRelevance", "isRelevant", "variance", "isContested"],
+            "properties": {
+              "meanScore": {
+                "type": "number",
+                "minimum": -2,
+                "maximum": 2,
+                "description": "Mean score across evaluative lenses for this dimension"
+              },
+              "meanRelevance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1,
+                "description": "Mean relevance across all 6 lenses for this dimension"
+              },
+              "isRelevant": {
+                "type": "boolean",
+                "description": "Whether this dimension was included in aggregation (mean relevance ≥ 0.2)"
+              },
+              "variance": {
+                "type": "number",
+                "minimum": 0,
+                "description": "Variance of scores across evaluative lenses (higher = more disagreement)"
+              },
+              "isContested": {
+                "type": "boolean",
+                "description": "Whether lenses disagreed significantly on this dimension (variance > 1.0)"
+              },
+              "lensScores": {
+                "type": "array",
+                "description": "Individual scores from each lens for transparency",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "lensId": { "type": "integer" },
+                    "score": { "type": "integer" },
+                    "relevance": { "type": "number" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "steelmanDelta": {
+          "type": "number",
+          "minimum": -100,
+          "maximum": 100,
+          "description": "Difference in alignment score if Steelman lens's scores replaced evaluative lenses' mean (normalized to -100 to 100 scale)"
+        },
+        "brief": {
+          "type": "string",
+          "description": "2-3 paragraph plain-language summary of the evaluation, explaining the floor level, key findings, contested dimensions, and overall recommendation"
+        },
+        "aggregationMetrics": {
+          "type": "object",
+          "description": "Optional detailed metrics from the aggregation process",
+          "properties": {
+            "relevanceThreshold": {
+              "type": "number",
+              "description": "Threshold used for filtering relevant dimensions"
+            },
+            "varianceThreshold": {
+              "type": "number",
+              "description": "Threshold used for flagging contested dimensions"
+            },
+            "totalDimensions": {
+              "type": "integer",
+              "description": "Total dimensions evaluated"
+            },
+            "relevantDimensions": {
+              "type": "integer",
+              "description": "Number of dimensions meeting relevance threshold"
+            },
+            "contestedDimensions": {
+              "type": "integer",
+              "description": "Number of dimensions with high variance across lenses"
+            }
+          }
+        }
+      }
+    }
+  }
+}
