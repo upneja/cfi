@@ -1,17 +1,17 @@
 const floorStyles = {
-  VIOLATION: {
+  CONFLICT: {
     bg: "bg-red-50",
     text: "text-red-800",
     border: "border-red-200",
     dot: "bg-red-500",
   },
-  CAUTION: {
+  TENSION: {
     bg: "bg-amber-50",
     text: "text-amber-800",
     border: "border-amber-200",
     dot: "bg-amber-500",
   },
-  CLEAR: {
+  ALIGNMENT: {
     bg: "bg-emerald-50",
     text: "text-emerald-800",
     border: "border-emerald-200",
