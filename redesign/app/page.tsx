@@ -21,16 +21,16 @@ function getAdminStats() {
       .map((eo) => ({ ...eo, ...aggregateEO(eo) }));
 
     const avgCfi = eos.reduce((sum, eo) => sum + eo.cfi, 0) / eos.length;
-    const violations = eos.filter((eo) => eo.floor === "VIOLATION").length;
-    const cautions = eos.filter((eo) => eo.floor === "CAUTION").length;
+    const conflicts = eos.filter((eo) => eo.floor === "CONFLICT").length;
+    const tensions = eos.filter((eo) => eo.floor === "TENSION").length;
 
     return {
       admin,
       dateRange: dateRanges[admin],
       count: eos.length,
       avgCfi,
-      violations,
-      cautions,
+      conflicts,
+      tensions,
     };
   });
 }
@@ -153,14 +153,14 @@ export default function HomePage() {
                 </div>
                 <div className="mt-3 flex items-center gap-3 text-xs text-slate-500">
                   <span>{stat.count} evaluated</span>
-                  {stat.violations > 0 && (
+                  {stat.conflicts > 0 && (
                     <span className="text-red-700">
-                      {stat.violations} violation{stat.violations > 1 ? "s" : ""}
+                      {stat.conflicts} conflict{stat.conflicts > 1 ? "s" : ""}
                     </span>
                   )}
-                  {stat.cautions > 0 && (
+                  {stat.tensions > 0 && (
                     <span className="text-amber-700">
-                      {stat.cautions} caution{stat.cautions > 1 ? "s" : ""}
+                      {stat.tensions} tension{stat.tensions > 1 ? "s" : ""}
                     </span>
                   )}
                 </div>
