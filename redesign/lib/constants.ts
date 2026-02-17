@@ -30,13 +30,31 @@ export interface ExecutiveOrder {
   narratives: Record<LensKey, string>;
 }
 
+export interface PrecedentMatch {
+  eoId: string;
+  title: string;
+  admin: string;
+  similarity: number;
+  cfi: number;
+  cfiDelta: number;
+  flagged: boolean;
+}
+
+export interface PrecedentAnchoring {
+  precedents: PrecedentMatch[];
+  anchored: boolean;
+  maxDelta: number;
+}
+
 export interface AggregatedEO extends ExecutiveOrder {
-  floor: 'VIOLATION' | 'CAUTION' | 'CLEAR';
+  floor: 'CONFLICT' | 'TENSION' | 'ALIGNMENT';
   cfi: number;
   steelmanDelta: number;
   contestedDims: DimensionKey[];
   relevantDims: Set<DimensionKey>;
   meanRelevance: Record<DimensionKey, number>;
+  lensWeights?: Record<LensKey, number>;
+  precedentAnchoring?: PrecedentAnchoring;
 }
 
 // ---------------------------------------------------------------------------
