@@ -129,6 +129,46 @@
       "favorable": "Enforcement of federal immigration law and removal of criminals and security threats, restoring the rule of law after years of non-enforcement and protecting American communities.",
       "unfavorable": "Militarized immigration enforcement with raids separating families, deporting people with long-term legal residence and community ties, and using fear and intimidation against immigrant communities.",
       "neutral": "Increased Immigration and Customs Enforcement (ICE) operations including workplace raids and detention, targeting both individuals with criminal convictions and undocumented immigrants without criminal records."
+    },
+    {
+      "id": 16,
+      "action": "Schedule F Civil Service Reclassification",
+      "administration": "Trump, 2020/2025",
+      "favorable": "Essential reform restoring democratic accountability to the federal bureaucracy by ensuring civil servants in policy-relevant positions serve at the pleasure of elected leadership, preventing unelected officials from obstructing the will of the people.",
+      "unfavorable": "Authoritarian power grab converting tens of thousands of career civil servants into political appointees, destroying merit-based government employment and enabling a loyalty-based spoils system that undermines institutional expertise and independence.",
+      "neutral": "Executive order reclassifying federal employees in policy-related positions from competitive service to excepted service, enabling removal without cause and replacing merit-based protections with at-will employment terms for affected positions."
+    },
+    {
+      "id": 17,
+      "action": "DEI Program Elimination",
+      "administration": "Trump, 2025",
+      "favorable": "Restoration of merit-based principles in government by ending discriminatory programs that divided Americans by race and imposed ideological conformity requirements on federal workers and contractors.",
+      "unfavorable": "Systematic dismantling of decades of progress toward racial equity and inclusion, eliminating programs that helped underrepresented groups access opportunities while threatening civil rights enforcement across the federal government.",
+      "neutral": "Executive order directing termination of all Diversity, Equity, and Inclusion offices, programs, and training across the federal government and federal contractors, and prohibiting consideration of DEI factors in hiring and procurement decisions."
+    },
+    {
+      "id": 18,
+      "action": "AI Barriers Removal",
+      "administration": "Trump, 2025",
+      "favorable": "Pro-innovation policy removing burdensome regulations that stifled American AI development, ensuring US technological leadership against China and unleashing transformative economic growth in artificial intelligence.",
+      "unfavorable": "Reckless deregulation removing safety guardrails from the most powerful technology in human history, prioritizing corporate profits over public safety and enabling deployment of biased, dangerous AI systems without accountability.",
+      "neutral": "Executive order revoking Biden-era AI safety requirements including testing mandates, bias audits, and watermarking requirements, and directing agencies to reduce regulatory barriers to AI development and deployment."
+    },
+    {
+      "id": 19,
+      "action": "WHO Withdrawal",
+      "administration": "Trump, 2025",
+      "favorable": "Reassertion of American sovereignty by leaving a corrupt international organization that failed during COVID-19, wasted US taxpayer money, and allowed China to influence global health policy against American interests.",
+      "unfavorable": "Dangerous abandonment of global health cooperation during an era of pandemic threats, removing US influence from the world's primary health security organization and leaving Americans more vulnerable to future outbreaks.",
+      "neutral": "Executive order initiating US withdrawal from the World Health Organization, redirecting annual contributions of approximately $700 million, and establishing alternative bilateral health cooperation arrangements."
+    },
+    {
+      "id": 20,
+      "action": "Student Loan Forgiveness Expansion",
+      "administration": "Biden, 2022-2024",
+      "favorable": "Continued effort to deliver relief to working families drowning in student debt, using alternative legal pathways after the Supreme Court ruling to address a generational crisis in education affordability.",
+      "unfavorable": "Defiance of the Supreme Court's clear ruling against executive student loan cancellation, using bureaucratic workarounds to bypass judicial review and transfer hundreds of billions in costs to taxpayers.",
+      "neutral": "Series of executive actions using income-driven repayment plan modifications and targeted forgiveness programs to cancel student loan debt through alternative statutory authorities following the Supreme Court's invalidation of the original broad forgiveness plan."
     }
   ]
 }

@@ -352,6 +352,356 @@ export const symmetryPairs = {
       },
       "expected_similar_dimensions": ["SP"],
       "notes": "Both administrations asserted executive privilege and Congressional oversight limits. Trump's more direct resistance; Obama's more through formal claims. Both implicate separation of powers and congressional investigative authority."
+    },
+    {
+      "id": 26,
+      "principle": "Cryptocurrency and digital asset regulation",
+      "dem": {
+        "action": "Digital Assets Regulatory Framework (Biden, 2022)",
+        "description": "Executive order establishing comprehensive regulatory framework for digital assets, directing agencies to study risks and develop consumer protections"
+      },
+      "gop": {
+        "action": "Bitcoin Strategic Reserve (Trump, 2025)",
+        "description": "Executive order creating a national bitcoin reserve and directing government acquisition of cryptocurrency"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both exercise executive authority over novel financial instruments without clear Congressional authorization. Biden used agency coordination; Trump used direct asset acquisition. Both raise questions about executive power over monetary policy traditionally controlled by Congress."
+    },
+    {
+      "id": 27,
+      "principle": "AI governance and innovation policy",
+      "dem": {
+        "action": "AI Safety and Accountability Framework (Biden, 2023)",
+        "description": "Executive order requiring AI safety testing, bias audits, and watermarking of AI-generated content, establishing reporting requirements for frontier models"
+      },
+      "gop": {
+        "action": "AI Barriers Removal (Trump, 2025)",
+        "description": "Executive order revoking AI safety requirements and removing regulatory barriers to AI development and deployment"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both use executive authority to set AI policy without Congressional legislation. Biden imposed requirements; Trump removed them. Both implicate agency authority and the major questions doctrine for emerging technology regulation."
+    },
+    {
+      "id": 28,
+      "principle": "Religious liberty versus anti-discrimination",
+      "dem": {
+        "action": "LGBTQ Federal Equality Order (Biden, 2021)",
+        "description": "Executive order extending Bostock reasoning across federal programs, requiring non-discrimination protections based on sexual orientation and gender identity"
+      },
+      "gop": {
+        "action": "Religious Liberty Executive Order (Trump, 2017)",
+        "description": "Executive order providing broad religious exemptions from federal regulations and directing agencies to accommodate religious objections"
+      },
+      "expected_similar_dimensions": ["EP", "CL"],
+      "notes": "Both address the tension between equality and religious liberty using executive authority. Biden expanded anti-discrimination protections; Trump expanded religious exemptions. Both implicate First Amendment and Equal Protection in competing directions."
+    },
+    {
+      "id": 29,
+      "principle": "K-12 education content and standards",
+      "dem": {
+        "action": "Racial Equity in Education (Biden, 2021)",
+        "description": "Executive order promoting diverse and inclusive curricula, directing federal education resources toward racial equity training and materials"
+      },
+      "gop": {
+        "action": "K-12 Indoctrination Elimination (Trump, 2025)",
+        "description": "Executive order directing removal of CRT and DEI content from schools receiving federal funding"
+      },
+      "expected_similar_dimensions": ["CL", "EP"],
+      "notes": "Both use federal funding leverage to influence K-12 curriculum content. Biden promoted equity-focused content; Trump prohibited it. Both raise First Amendment academic freedom and spending power coercion concerns."
+    },
+    {
+      "id": 30,
+      "principle": "Healthcare access and pricing",
+      "dem": {
+        "action": "Reproductive Healthcare Access (Biden, 2022)",
+        "description": "Post-Dobbs executive order protecting reproductive healthcare access, using EMTALA preemption and interstate travel protections"
+      },
+      "gop": {
+        "action": "Healthcare Pricing Transparency (Trump, 2025)",
+        "description": "Executive order directing hospitals and insurers to disclose pricing and directing agencies to promote market-based healthcare reform"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both use executive authority to reshape healthcare policy without Congressional action. Biden used EMTALA preemption; Trump used disclosure mandates. Both stretch existing statutory authority to achieve policy goals Congress has not enacted."
+    },
+    {
+      "id": 31,
+      "principle": "Criminal justice philosophy",
+      "dem": {
+        "action": "Private Prison Ban (Biden, 2021)",
+        "description": "Executive order directing DOJ to end federal contracts with private prisons, citing racial disparities and safety concerns"
+      },
+      "gop": {
+        "action": "Death Penalty Restoration (Trump, 2025)",
+        "description": "Executive order directing DOJ to resume federal executions and expand categories of death-eligible offenses"
+      },
+      "expected_similar_dimensions": ["DP", "EP"],
+      "notes": "Both direct DOJ criminal justice policy through executive action. Biden restricted carceral practices; Trump expanded them. Both raise equal protection concerns given documented racial disparities in the criminal justice system."
+    },
+    {
+      "id": 32,
+      "principle": "Foreign aid withdrawal and international engagement",
+      "dem": {
+        "action": "Iran Nuclear Deal (Obama, 2015)",
+        "description": "Entry into JCPOA through executive agreement, providing sanctions relief in exchange for nuclear program limits"
+      },
+      "gop": {
+        "action": "Foreign Aid Realignment (Trump, 2025)",
+        "description": "Blanket freeze on foreign aid disbursements pending review, halting billions in congressionally appropriated funds"
+      },
+      "expected_similar_dimensions": ["SP", "N"],
+      "notes": "Both involve unilateral executive action on international commitments with spending implications. Obama committed US resources; Trump froze them. Both implicate Congressional spending authority and treaty/agreement power."
+    },
+    {
+      "id": 33,
+      "principle": "Gender identity in federal programs",
+      "dem": {
+        "action": "Gender Identity Protections (Biden, 2021)",
+        "description": "Executive order applying Bostock reasoning to extend gender identity protections across all federal programs and contractors"
+      },
+      "gop": {
+        "action": "Defining Sex as Biological (Trump, 2025)",
+        "description": "Executive order directing federal agencies to define sex as exclusively biological and immutable for all federal purposes"
+      },
+      "expected_similar_dimensions": ["EP", "CL"],
+      "notes": "Both redefine sex for federal purposes through executive action. Biden expanded to include gender identity; Trump restricted to biological sex. Both contradict some aspect of Bostock and implicate equal protection and statutory interpretation."
+    },
+    {
+      "id": 34,
+      "principle": "Energy and climate policy direction",
+      "dem": {
+        "action": "Climate Crisis Action (Biden, 2021)",
+        "description": "Executive order declaring climate emergency, pausing federal oil and gas leasing, setting net-zero targets, and rejoining Paris Agreement"
+      },
+      "gop": {
+        "action": "Unleashing Energy Dominance (Trump, 2025)",
+        "description": "Executive order declaring national energy emergency, maximizing fossil fuel production on federal lands, and revoking climate regulations"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both use emergency declarations for energy policy. Biden paused leasing; Trump expanded it. Both stretch executive authority over federal land management where Congress has set statutory frameworks. Opposite policy but same constitutional mechanisms."
+    },
+    {
+      "id": 35,
+      "principle": "Targeting specific legal entities",
+      "dem": {
+        "action": "DOJ Consent Decree Enforcement (Biden, 2021-2024)",
+        "description": "DOJ pursuing pattern-or-practice investigations and consent decrees against local police departments, using federal oversight authority"
+      },
+      "gop": {
+        "action": "Law Firm Sanctions (Trump, 2025)",
+        "description": "Executive orders targeting specific law firms (Perkins Coie, Paul Weiss, Jenner & Block) with security clearance revocations and federal contract bans"
+      },
+      "expected_similar_dimensions": ["DP", "CL"],
+      "notes": "Both use federal power against specific entities. Biden used statutory pattern-or-practice authority; Trump targeted named firms by executive order. Trump's action raises bill of attainder and First Amendment concerns absent in Biden's statutory enforcement."
+    },
+    {
+      "id": 36,
+      "principle": "Military deployment for domestic purposes",
+      "dem": {
+        "action": "Guantanamo Closure Order (Obama, 2009)",
+        "description": "Executive order closing Guantanamo detention facility and establishing interrogation limits, though Congress blocked detainee transfers"
+      },
+      "gop": {
+        "action": "Military Border Deployment (Trump, 2025)",
+        "description": "Deployment of active-duty military forces to southern border for immigration enforcement operations"
+      },
+      "expected_similar_dimensions": ["SP", "DP"],
+      "notes": "Both involve executive direction of military for domestic-facing purposes. Obama restricted military detention; Trump expanded military domestic deployment. Both implicate Posse Comitatus, separation of powers, and due process in different ways."
+    },
+    {
+      "id": 37,
+      "principle": "Refugee and asylum policy",
+      "dem": {
+        "action": "DAPA (Obama, 2014)",
+        "description": "Deferred Action for Parents of Americans, extending DACA-like protections to approximately 4 million undocumented parents"
+      },
+      "gop": {
+        "action": "Refugee Admissions Suspension (Trump, 2025)",
+        "description": "Executive order suspending refugee admissions program and dramatically reducing annual refugee ceiling"
+      },
+      "expected_similar_dimensions": ["SP", "EP"],
+      "notes": "Both involve unilateral executive action on immigration affecting millions. Obama expanded protections; Trump restricted admissions. Both test limits of executive immigration authority and implicate statutory frameworks."
+    },
+    {
+      "id": 38,
+      "principle": "Election integrity and voting access",
+      "dem": {
+        "action": "Voting Access Expansion (Biden, 2021)",
+        "description": "Executive order directing federal agencies to expand voter registration opportunities and improve election accessibility"
+      },
+      "gop": {
+        "action": "Election Interference Accountability (Trump, 2025)",
+        "description": "Executive order directing DOJ to investigate alleged election fraud and establishing task forces to review election administration"
+      },
+      "expected_similar_dimensions": ["D", "EP"],
+      "notes": "Both use executive authority to influence election administration. Biden expanded access; Trump pursued enforcement. Both implicate federalism (elections are state-administered) and equal protection (disparate impact on different populations)."
+    },
+    {
+      "id": 39,
+      "principle": "International organization membership",
+      "dem": {
+        "action": "Climate Science Integration (Biden, 2021)",
+        "description": "Rejoined Paris Agreement and directed agencies to integrate international climate commitments into domestic policy"
+      },
+      "gop": {
+        "action": "WHO Withdrawal (Trump, 2025)",
+        "description": "Unilateral withdrawal from World Health Organization, redirecting US contributions and ending participation"
+      },
+      "expected_similar_dimensions": ["SP", "N"],
+      "notes": "Both involve unilateral executive action on international organization participation. Biden recommitted; Trump withdrew. Both raise treaty power questions and whether Congressional appropriations can be redirected by executive action."
+    },
+    {
+      "id": 40,
+      "principle": "Free speech and platform regulation",
+      "dem": {
+        "action": "Net Neutrality (Obama/FCC, 2015)",
+        "description": "FCC reclassification of broadband as common carrier, imposing neutrality requirements on internet service providers"
+      },
+      "gop": {
+        "action": "Free Speech and Censorship Order (Trump, 2025)",
+        "description": "Executive order directing agencies to combat alleged government-enabled censorship on social media platforms"
+      },
+      "expected_similar_dimensions": ["CL", "AR"],
+      "notes": "Both address speech and communication through executive/agency authority. Obama imposed neutrality rules; Trump addressed content moderation. Both implicate First Amendment and agency authority over communications."
+    },
+    {
+      "id": 41,
+      "principle": "Trade protectionism and supply chains",
+      "dem": {
+        "action": "Supply Chain Resilience (Biden, 2021)",
+        "description": "Executive order directing review of critical supply chains and promoting domestic manufacturing through federal procurement"
+      },
+      "gop": {
+        "action": "China Tariffs Expansion (Trump, 2025)",
+        "description": "Broad tariffs on Chinese imports under emergency economic authority, expanding beyond Section 301 framework"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both use executive authority for trade protectionism. Biden used procurement authority; Trump used emergency tariff power. Both raise Article I commerce clause questions about congressional vs. presidential trade authority."
+    },
+    {
+      "id": 42,
+      "principle": "Counterterrorism authority and designation",
+      "dem": {
+        "action": "Targeted Killing Program (Obama, 2009-2016)",
+        "description": "Executive authorization of drone strikes against suspected terrorists, including US citizens abroad, without judicial review"
+      },
+      "gop": {
+        "action": "Cartels as Foreign Terrorist Organizations (Trump, 2025)",
+        "description": "Designation of drug cartels as foreign terrorist organizations, extending material support liability to millions of peripheral associates"
+      },
+      "expected_similar_dimensions": ["DP", "CL"],
+      "notes": "Both expand counterterrorism authority into novel domains. Obama used lethal force without judicial process; Trump extended FTO designation beyond political groups. Both raise serious due process concerns and stretch executive counterterrorism authority."
+    },
+    {
+      "id": 43,
+      "principle": "Federal workforce management",
+      "dem": {
+        "action": "Federal Employee Vaccine Mandate (Biden, 2021)",
+        "description": "Executive order requiring COVID-19 vaccination for all federal employees with limited exceptions"
+      },
+      "gop": {
+        "action": "Federal Bureaucracy Reduction (Trump, 2025)",
+        "description": "Executive order directing mass reductions in federal workforce and elimination of entire agency divisions"
+      },
+      "expected_similar_dimensions": ["SP", "DP"],
+      "notes": "Both impose sweeping employment conditions on federal workers. Biden required medical compliance; Trump directed mass termination. Both implicate due process property interests in employment and executive personnel authority."
+    },
+    {
+      "id": 44,
+      "principle": "Anti-corruption and foreign enforcement",
+      "dem": {
+        "action": "Russia Sanctions (Biden, 2022)",
+        "description": "Comprehensive sanctions against Russian entities, oligarchs, and financial institutions in response to Ukraine invasion"
+      },
+      "gop": {
+        "action": "FCPA Enforcement Pause (Trump, 2025)",
+        "description": "Executive order pausing Foreign Corrupt Practices Act enforcement and reviewing anti-bribery prosecutions"
+      },
+      "expected_similar_dimensions": ["SP", "N"],
+      "notes": "Both involve executive authority over foreign corruption enforcement. Biden expanded sanctions; Trump reduced enforcement. Both implicate statutory foreign policy frameworks and executive enforcement discretion."
+    },
+    {
+      "id": 45,
+      "principle": "Energy infrastructure and federal land",
+      "dem": {
+        "action": "Keystone XL Revocation (Biden, 2021)",
+        "description": "Revocation of Keystone XL pipeline permit, citing climate concerns and redirecting energy policy toward renewables"
+      },
+      "gop": {
+        "action": "Alaska Resource Development (Trump, 2025)",
+        "description": "Executive order opening protected federal lands in Alaska to oil, gas, and mineral development"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both use executive authority over federal land and energy infrastructure. Biden blocked a pipeline; Trump opened protected lands. Both test limits of executive authority where Congress has set frameworks for land management."
+    },
+    {
+      "id": 46,
+      "principle": "Deregulation philosophy",
+      "dem": {
+        "action": "Promoting Competition (Biden, 2021)",
+        "description": "Executive order directing agencies to promote competition through 72 specific regulatory actions across industries"
+      },
+      "gop": {
+        "action": "Deregulation for Prosperity (Trump, 2025)",
+        "description": "Executive order extending 2-for-1 deregulatory framework and directing agencies to reduce regulatory burden by specified percentages"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both direct agency rulemaking priorities through executive order. Biden promoted regulation; Trump promoted deregulation. Both implicate presidential authority over independent agencies and APA requirements for reasoned decision-making."
+    },
+    {
+      "id": 47,
+      "principle": "International court jurisdiction",
+      "dem": {
+        "action": "War Powers and International Cooperation (Obama, 2011)",
+        "description": "Military intervention in Libya based on UN Security Council authorization without Congressional approval"
+      },
+      "gop": {
+        "action": "ICC Sanctions (Trump, 2025)",
+        "description": "Executive order imposing sanctions on International Criminal Court officials investigating US and allied personnel"
+      },
+      "expected_similar_dimensions": ["SP", "N"],
+      "notes": "Both involve executive assertion of authority vis-à-vis international institutions. Obama used international authority to bypass Congress; Trump sanctioned an international court. Both implicate war powers, sovereignty, and separation of powers."
+    },
+    {
+      "id": 48,
+      "principle": "Government investment and sovereign wealth",
+      "dem": {
+        "action": "Supply Chain Investment (Biden, 2021)",
+        "description": "Executive direction of federal investment in critical supply chains, semiconductor manufacturing, and clean energy infrastructure"
+      },
+      "gop": {
+        "action": "Sovereign Wealth Fund (Trump, 2025)",
+        "description": "Executive order creating a national sovereign wealth fund to invest in strategic assets and infrastructure"
+      },
+      "expected_similar_dimensions": ["SP", "AR"],
+      "notes": "Both direct government investment through executive action without specific Congressional authorization. Biden used procurement authority; Trump created a new investment vehicle. Both raise Appropriations Clause concerns about executive spending discretion."
+    },
+    {
+      "id": 49,
+      "principle": "Children's welfare and gender policy",
+      "dem": {
+        "action": "Title IX Gender Identity Expansion (Biden, 2021)",
+        "description": "Guidance expanding Title IX to protect students based on gender identity, including bathroom and sports team access"
+      },
+      "gop": {
+        "action": "Protecting Children from Gender Ideology (Trump, 2025)",
+        "description": "Executive order directing federal agencies to prohibit gender-affirming medical care for minors receiving federal funding"
+      },
+      "expected_similar_dimensions": ["EP", "DP"],
+      "notes": "Both address children's gender-related policies through executive authority. Biden expanded protections; Trump restricted medical care. Both implicate parental rights, equal protection for minors, and spending power coercion."
+    },
+    {
+      "id": 50,
+      "principle": "National security transparency",
+      "dem": {
+        "action": "Enhanced Interrogation Ban (Obama, 2009)",
+        "description": "Executive order banning enhanced interrogation techniques, establishing Army Field Manual as standard, and ordering CIA black site closures"
+      },
+      "gop": {
+        "action": "JFK Declassification (Trump, 2025)",
+        "description": "Executive order directing complete declassification of JFK assassination records over intelligence community objections"
+      },
+      "expected_similar_dimensions": ["SP"],
+      "notes": "Both involve executive authority over national security information and practices. Obama restricted executive methods; Trump overrode agency classification. Both implicate executive power over intelligence community and separation of powers regarding information control."
     }
   ]
 }
@@ -487,7 +837,95 @@ export const framingTests = {
       "favorable": "Enforcement of federal immigration law and removal of criminals and security threats, restoring the rule of law after years of non-enforcement and protecting American communities.",
       "unfavorable": "Militarized immigration enforcement with raids separating families, deporting people with long-term legal residence and community ties, and using fear and intimidation against immigrant communities.",
       "neutral": "Increased Immigration and Customs Enforcement (ICE) operations including workplace raids and detention, targeting both individuals with criminal convictions and undocumented immigrants without criminal records."
+    },
+    {
+      "id": 16,
+      "action": "Schedule F Civil Service Reclassification",
+      "administration": "Trump, 2020/2025",
+      "favorable": "Essential reform restoring democratic accountability to the federal bureaucracy by ensuring civil servants in policy-relevant positions serve at the pleasure of elected leadership, preventing unelected officials from obstructing the will of the people.",
+      "unfavorable": "Authoritarian power grab converting tens of thousands of career civil servants into political appointees, destroying merit-based government employment and enabling a loyalty-based spoils system that undermines institutional expertise and independence.",
+      "neutral": "Executive order reclassifying federal employees in policy-related positions from competitive service to excepted service, enabling removal without cause and replacing merit-based protections with at-will employment terms for affected positions."
+    },
+    {
+      "id": 17,
+      "action": "DEI Program Elimination",
+      "administration": "Trump, 2025",
+      "favorable": "Restoration of merit-based principles in government by ending discriminatory programs that divided Americans by race and imposed ideological conformity requirements on federal workers and contractors.",
+      "unfavorable": "Systematic dismantling of decades of progress toward racial equity and inclusion, eliminating programs that helped underrepresented groups access opportunities while threatening civil rights enforcement across the federal government.",
+      "neutral": "Executive order directing termination of all Diversity, Equity, and Inclusion offices, programs, and training across the federal government and federal contractors, and prohibiting consideration of DEI factors in hiring and procurement decisions."
+    },
+    {
+      "id": 18,
+      "action": "AI Barriers Removal",
+      "administration": "Trump, 2025",
+      "favorable": "Pro-innovation policy removing burdensome regulations that stifled American AI development, ensuring US technological leadership against China and unleashing transformative economic growth in artificial intelligence.",
+      "unfavorable": "Reckless deregulation removing safety guardrails from the most powerful technology in human history, prioritizing corporate profits over public safety and enabling deployment of biased, dangerous AI systems without accountability.",
+      "neutral": "Executive order revoking Biden-era AI safety requirements including testing mandates, bias audits, and watermarking requirements, and directing agencies to reduce regulatory barriers to AI development and deployment."
+    },
+    {
+      "id": 19,
+      "action": "WHO Withdrawal",
+      "administration": "Trump, 2025",
+      "favorable": "Reassertion of American sovereignty by leaving a corrupt international organization that failed during COVID-19, wasted US taxpayer money, and allowed China to influence global health policy against American interests.",
+      "unfavorable": "Dangerous abandonment of global health cooperation during an era of pandemic threats, removing US influence from the world's primary health security organization and leaving Americans more vulnerable to future outbreaks.",
+      "neutral": "Executive order initiating US withdrawal from the World Health Organization, redirecting annual contributions of approximately $700 million, and establishing alternative bilateral health cooperation arrangements."
+    },
+    {
+      "id": 20,
+      "action": "Student Loan Forgiveness Expansion",
+      "administration": "Biden, 2022-2024",
+      "favorable": "Continued effort to deliver relief to working families drowning in student debt, using alternative legal pathways after the Supreme Court ruling to address a generational crisis in education affordability.",
+      "unfavorable": "Defiance of the Supreme Court's clear ruling against executive student loan cancellation, using bureaucratic workarounds to bypass judicial review and transfer hundreds of billions in costs to taxpayers.",
+      "neutral": "Series of executive actions using income-driven repayment plan modifications and targeted forgiveness programs to cancel student loan debt through alternative statutory authorities following the Supreme Court's invalidation of the original broad forgiveness plan."
     }
   ]
 }
 ;
+
+/**
+ * Maps symmetry pair IDs to EO IDs in data.ts where both dem and gop
+ * actions correspond to entries in the 100-EO dataset.
+ * Used by calibration to compute per-lens bias from actual scored data.
+ */
+export const symmetryPairEOMapping: Record<number, { dem: string; gop: string }> = {
+  1: { dem: 'daca', gop: 'birthright-citizenship' },
+  2: { dem: 'covid-emergency-powers', gop: 'border-wall-emergency' },
+  3: { dem: 'clean-power', gop: 'doge' },
+  4: { dem: 'student-loan-forgiveness', gop: 'liberation-tariffs' },
+  5: { dem: 'nsa-surveillance', gop: 'immigration-enforcement' },
+  6: { dem: 'osha-vaccine-mandate', gop: 'travel-ban' },
+  7: { dem: 'racial-equity-initiative', gop: 'dei-elimination' },
+  8: { dem: 'transgender-federal-protections', gop: 'transgender-military-ban' },
+  9: { dem: 'guantanamo-closure', gop: 'jan6-pardons' },
+  10: { dem: 'iran-nuclear-deal', gop: 'paris-withdrawal' },
+  11: { dem: 'title-ix-gender-identity', gop: 'gender-ideology-extremism' },
+  12: { dem: 'waters-of-us-rule', gop: 'energy-independence' },
+  14: { dem: 'gun-control', gop: 'second-amendment' },
+  15: { dem: 'enhanced-interrogation-ban', gop: 'alien-enemies-act' },
+  17: { dem: 'policing-reform', gop: 'cartels-fto' },
+  18: { dem: 'cybersecurity-improvement', gop: 'schedule-f' },
+  20: { dem: 'voting-access', gop: 'sanctuary-cities' },
+  26: { dem: 'digital-assets-regulation', gop: 'bitcoin-reserve' },
+  27: { dem: 'cybersecurity-improvement', gop: 'ai-barriers-removal' },
+  28: { dem: 'lgbtq-equality', gop: 'religious-liberty' },
+  29: { dem: 'racial-equity-initiative', gop: 'k12-indoctrination' },
+  30: { dem: 'reproductive-healthcare', gop: 'healthcare-pricing' },
+  31: { dem: 'private-prisons-ban', gop: 'death-penalty-restoration' },
+  32: { dem: 'iran-nuclear-deal', gop: 'foreign-aid-realignment' },
+  33: { dem: 'gender-identity-protections', gop: 'gender-ideology-extremism' },
+  34: { dem: 'climate-crisis-action', gop: 'unleashing-energy' },
+  36: { dem: 'guantanamo-closure', gop: 'military-border' },
+  37: { dem: 'dapa', gop: 'refugee-realignment' },
+  38: { dem: 'voting-access', gop: 'election-interference-accountability' },
+  39: { dem: 'climate-crisis-action', gop: 'who-withdrawal' },
+  40: { dem: 'net-neutrality', gop: 'free-speech-censorship' },
+  41: { dem: 'supply-chains', gop: 'china-tariffs' },
+  42: { dem: 'drone-strikes', gop: 'cartels-fto' },
+  43: { dem: 'federal-employee-vaccine', gop: 'federal-bureaucracy-reduction' },
+  44: { dem: 'russia-sanctions', gop: 'fcpa-pause' },
+  45: { dem: 'keystone-xl-revocation', gop: 'alaska-resources' },
+  46: { dem: 'promoting-competition', gop: 'deregulation-prosperity' },
+  48: { dem: 'supply-chains', gop: 'sovereign-wealth-fund' },
+  49: { dem: 'title-ix-gender-identity', gop: 'protecting-children-gender' },
+  50: { dem: 'enhanced-interrogation-ban', gop: 'jfk-declassification' },
+};
